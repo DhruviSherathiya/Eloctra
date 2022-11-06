@@ -1,4 +1,5 @@
 using Eloctra.Data;
+using Eloctra.Data.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +28,10 @@ namespace Eloctra
         {
             //DbContext configuration added
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("electroDb")));
+
+            //Services configuration
+            services.AddScoped<ICompanyService, CompanyService>();
+
             services.AddControllersWithViews();
         }
 

@@ -18,7 +18,7 @@ namespace Eloctra.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var allProduct = await _context.Products.ToListAsync();
+            var allProduct = await _context.Products.Include(n => n.Company).OrderBy(n => n.Name).ToListAsync();
             return View(allProduct);
         }
     }
