@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jay Shah\\source\\repos\\Eloctra\\Eloctra\\Eloctra.csproj": {}
+    "D:\\Eloctra\\Eloctra\\Eloctra.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jay Shah\\source\\repos\\Eloctra\\Eloctra\\Eloctra.csproj": {
+    "D:\\Eloctra\\Eloctra\\Eloctra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jay Shah\\source\\repos\\Eloctra\\Eloctra\\Eloctra.csproj",
+        "projectUniqueName": "D:\\Eloctra\\Eloctra\\Eloctra.csproj",
         "projectName": "Eloctra",
-        "projectPath": "C:\\Users\\Jay Shah\\source\\repos\\Eloctra\\Eloctra\\Eloctra.csproj",
-        "packagesPath": "C:\\Users\\Jay Shah\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jay Shah\\source\\repos\\Eloctra\\Eloctra\\obj\\",
+        "projectPath": "D:\\Eloctra\\Eloctra\\Eloctra.csproj",
+        "packagesPath": "C:\\Users\\Indus\\.nuget\\packages\\",
+        "outputPath": "D:\\Eloctra\\Eloctra\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Jay Shah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Indus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Eloctra.Controllers
 {
-    public class ViewProductController : Controller
+    public class ProductController : Controller
     {
         private readonly AppDbContext _context;
 
-        public ViewProductController(AppDbContext context)
+        public ProductController(AppDbContext context)
         {
             _context = context;
         }

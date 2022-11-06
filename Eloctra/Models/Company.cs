@@ -18,7 +18,7 @@ namespace Eloctra.Models
         public string Description { get; set; }
 
         //Relationships
-        //public List<Product> Products { get; set; }
+        public List<Product> Products { get; set; }
 
     }
 }

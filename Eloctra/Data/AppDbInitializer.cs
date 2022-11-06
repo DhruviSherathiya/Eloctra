@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Eloctra.Models;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -19,91 +20,30 @@ namespace Eloctra.Data
                 context.Database.EnsureCreated();
 
                 //Product
-               /* if (!context.Products.Any())
-                {
-                    context.Products.AddRange(new List<Products>()
-                    {
-                        new Product()
-                        {
-                            Name = "Life",
-                            Description = "This is the Life movie description",
-                            Price = 39.50,
-                            ImageURL = "http://dotnethow.net/images/movies/movie-3.jpeg",
-                            StartDate = DateTime.Now.AddDays(-10),
-                            EndDate = DateTime.Now.AddDays(10),
-                            CinemaId = 3,
-                            ProducerId = 3,
-                            MovieCategory = MovieCategory.Documentary
-                        },
-                        new Movie()
-                        {
-                            Name = "The Shawshank Redemption",
-                            Description = "This is the Shawshank Redemption description",
-                            Price = 29.50,
-                            ImageURL = "http://dotnethow.net/images/movies/movie-1.jpeg",
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(3),
-                            CinemaId = 1,
-                            ProducerId = 1,
-                            MovieCategory = MovieCategory.Action
-                        },
-                        new Movie()
-                        {
-                            Name = "Ghost",
-                            Description = "This is the Ghost movie description",
-                            Price = 39.50,
-                            ImageURL = "http://dotnethow.net/images/movies/movie-4.jpeg",
-                            StartDate = DateTime.Now,
-                            EndDate = DateTime.Now.AddDays(7),
-                            CinemaId = 4,
-                            ProducerId = 4,
-                            MovieCategory = MovieCategory.Horror
-                        },
-                        new Movie()
-                        {
-                            Name = "Race",
-                            Description = "This is the Race movie description",
-                            Price = 39.50,
-                            ImageURL = "http://dotnethow.net/images/movies/movie-6.jpeg",
-                            StartDate = DateTime.Now.AddDays(-10),
-                            EndDate = DateTime.Now.AddDays(-5),
-                            CinemaId = 1,
-                            ProducerId = 2,
-                            MovieCategory = MovieCategory.Documentary
-                        },
-                        new Movie()
-                        {
-                            Name = "Scoob",
-                            Description = "This is the Scoob movie description",
-                            Price = 39.50,
-                            ImageURL = "http://dotnethow.net/images/movies/movie-7.jpeg",
-                            StartDate = DateTime.Now.AddDays(-10),
-                            EndDate = DateTime.Now.AddDays(-2),
-                            CinemaId = 1,
-                            ProducerId = 3,
-                            MovieCategory = MovieCategory.Cartoon
-                        },
-                        new Movie()
-                        {
-                            Name = "Cold Soles",
-                            Description = "This is the Cold Soles movie description",
-                            Price = 39.50,
-                            ImageURL = "http://dotnethow.net/images/movies/movie-8.jpeg",
-                            StartDate = DateTime.Now.AddDays(3),
-                            EndDate = DateTime.Now.AddDays(20),
-                            CinemaId = 1,
-                            ProducerId = 5,
-                            MovieCategory = MovieCategory.Drama
-                        }
-                    });
-                    context.SaveChanges();
+                if (!context.Products.Any())
+                 {
+                     context.Products.AddRange(new List<Product>()
+                     {
+                         new Product()
+                         {
+                             Name = "Laptop 1",
+                             Description = "This is the Laptop 1 description",
+                             Price = 70000 ,
+                             ImageURL = "https://d2d22nphq0yz8t.cloudfront.net/88e6cc4b-eaa1-4053-af65-563d88ba8b26/https://media.croma.com/image/upload/v1664418078/Croma%20Assets/Computers%20Peripherals/Laptop/Images/257161_0_hvgepf.png/mxw_2048,f_auto",
+                             Category = Category.Laptop,
+                             CompanyId = 1,
+                         },
 
-                }
-                //Company
-                if (!context.Companies.Any())
-                {
+                     });
+                     context.SaveChanges();
 
-                }*/
+                 }
+
+                 //Company
+                 /* if (!context.Companies.Any())
+                 {
+
+                 }*/
 
 
 
