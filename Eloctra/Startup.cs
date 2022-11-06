@@ -31,6 +31,7 @@ namespace Eloctra
 
             //Services configuration
             services.AddScoped<ICompanyService, CompanyService>();
+            services.AddScoped<IProductService, ProductService>();
 
             services.AddControllersWithViews();
         }

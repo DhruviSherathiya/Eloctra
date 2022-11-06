@@ -163,3 +163,5 @@ D:\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Company\Details.cshtml.g.
 D:\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Company\Edit.cshtml.g.cs
 D:\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Company\Delete.cshtml.g.cs
 D:\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Shared\NotFound.cshtml.g.cs
+D:\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Product\Details.cshtml.g.cs
+D:\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Product\Create.cshtml.g.cs

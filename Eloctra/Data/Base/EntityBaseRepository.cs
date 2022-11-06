@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Eloctra.Data.Base
@@ -35,10 +36,25 @@ namespace Eloctra.Data.Base
             return result;
         }
 
+        public async Task<IEnumerable<T>> GetAllAsync(params Expression<Func<T, object>>[] includeProperties)
+        {
+            IQueryable<T> query = _context.Set<T>();
+            query = includeProperties.Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
+            return await query.ToListAsync();
+
+        }
+
         public async Task<T> GetByIdAsync(int id)
         {
             var result = await _context.Set<T>().FirstOrDefaultAsync(n => n.Id == id);
             return result;
+        }
+
+        public async Task<T> GetByIdAsync(int id, params Expression<Func<T, object>>[] includeProperties)
+        {
+            IQueryable<T> query = _context.Set<T>();
+            query = includeProperties.Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
+            return await query.FirstOrDefaultAsync(n => n.Id == id);
         }
 
         public async Task UpdateAsync(int id, T entity)

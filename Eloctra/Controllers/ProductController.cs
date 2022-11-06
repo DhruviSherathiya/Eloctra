@@ -1,4 +1,5 @@
 ﻿using Eloctra.Data;
+using Eloctra.Data.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,16 +11,32 @@ namespace Eloctra.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IProductService _service;
 
-        public ProductController(AppDbContext context)
+        public ProductController(IProductService service)
         {
-            _context = context;
+            _service = service;
         }
         public async Task<IActionResult> Index()
         {
-            var allProduct = await _context.Products.Include(n => n.Company).OrderBy(n => n.Name).ToListAsync();
+            var allProduct = await _service.GetAllAsync(n => n.Company);
             return View(allProduct);
+        }
+
+        //GET: Product/Details/1
+        public async Task<IActionResult> Details(int id)
+        {
+            var movieDetail = await _service.GetProductByIdAsync(id);
+            return View(movieDetail);
+        }
+
+        //GET: Product/Create
+        public IActionResult Create()
+        {
+            ViewData["Welcome"] = "Welcome to our store";
+            ViewBag.Description = "This is the store description";
+
+            return View();
         }
     }
 }

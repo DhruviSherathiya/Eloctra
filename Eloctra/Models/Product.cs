@@ -1,4 +1,5 @@
 ﻿using Eloctra.Data;
+using Eloctra.Data.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Eloctra.Models
 {
-    public class Product
+    public class Product:IEntityBase
     {
         [Key]
         public int Id { get; set; }
