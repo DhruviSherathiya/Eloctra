@@ -1,5 +1,6 @@
 ﻿using Eloctra.Models;
 using Microsoft.AspNetCore.Builder;
+
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace Eloctra.Data
                 context.Database.EnsureCreated();
 
                 //Product
-                if (!context.Products.Any())
+              /*  if (!context.Products.Any())
                  {
                      context.Products.AddRange(new List<Product>()
                      {
@@ -36,8 +37,8 @@ namespace Eloctra.Data
 
                      });
                      context.SaveChanges();
-
-                 }
+              
+                 }*/
 
                  //Company
                  /* if (!context.Companies.Any())
