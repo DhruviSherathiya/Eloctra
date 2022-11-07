@@ -18,9 +18,21 @@ namespace Eloctra.Data.Services
 
         public async Task<Product> GetProductByIdAsync(int id)
         {
-            var movieDetails = await _context.Products.Include(c => c.Company).FirstOrDefaultAsync(n => n.Id == id);
+            var ProductDetails = await _context.Products.Include(c => c.Company).FirstOrDefaultAsync(n => n.Id == id);
 
-            return movieDetails;
+            return ProductDetails;
         }
+        /*public async Task<NewProductDropdown> GetNewMovieDropdownsValues()
+        {
+            var response = new NewProductDropdown()
+            {
+                Compaines = await _context.Companies.OrderBy(n => n.Id).ToListAsync(),
+                
+            };
+
+            return response;
+        }
+        */
+
     }
 }

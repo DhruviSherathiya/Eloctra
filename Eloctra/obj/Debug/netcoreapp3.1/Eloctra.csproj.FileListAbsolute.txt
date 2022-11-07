@@ -252,3 +252,12 @@ C:\Users\Jay Shah\OneDrive\Documents\GitHub\Eloctra\Eloctra\obj\Debug\netcoreapp
 C:\Users\Jay Shah\OneDrive\Documents\GitHub\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Eloctra.dll
 C:\Users\Jay Shah\OneDrive\Documents\GitHub\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Eloctra.pdb
 C:\Users\Jay Shah\OneDrive\Documents\GitHub\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Eloctra.genruntimeconfig.cache
+C:\Users\Jay Shah\OneDrive\Documents\GitHub\Eloctra\Eloctra\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Jay Shah\OneDrive\Documents\GitHub\Eloctra\Eloctra\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Jay Shah\OneDrive\Documents\GitHub\Eloctra\Eloctra\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Jay Shah\OneDrive\Documents\GitHub\Eloctra\Eloctra\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Jay Shah\OneDrive\Documents\GitHub\Eloctra\Eloctra\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Jay Shah\OneDrive\Documents\GitHub\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\Jay Shah\OneDrive\Documents\GitHub\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\Jay Shah\OneDrive\Documents\GitHub\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Product\Delete.cshtml.g.cs
+C:\Users\Jay Shah\OneDrive\Documents\GitHub\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Product\Edit.cshtml.g.cs

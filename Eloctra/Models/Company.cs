@@ -18,6 +18,7 @@ namespace Eloctra.Models
 
         [Display(Name="Company Name")]
         [Required(ErrorMessage = "Name is required")]
+        [StringLength(50,MinimumLength =3,ErrorMessage ="Company Name should have 3 to 50 chars")]
         public string Name { get; set; }
 
 

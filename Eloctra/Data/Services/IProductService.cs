@@ -10,5 +10,6 @@ namespace Eloctra.Data.Services
     public interface IProductService: IEntityBaseRepository<Product>
     {
         Task<Product> GetProductByIdAsync(int id);
+        //Task<NewProductDropdown> GetNewProductDropdownsValues();
     }
 }

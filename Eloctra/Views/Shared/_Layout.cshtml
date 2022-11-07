@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject SignInManager<IdentityUser> signinmanager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -30,7 +32,28 @@
                                 <a class="dropdown-item" asp-controller="Company" asp-action="Index"><i class="bi bi-camera-reels"></i> Company</a>
                             </div>
                         </li>
-                    </ul>
+                        @*if the user is signed-in display logout link*@
+                        @if (signinmanager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <form method="post" asp-controller="account" asp-action="logout">
+                                    <button type="submit" style="width:auto" class="nav-link btn btn-primary py-0">
+                                        Logout @User.Identity.Name
+                                    </button>
+                                </form>
+                            </li>
+                        }
+
+                        else
+                        {
+                              <li class="nav-item" style="right:0px">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="account" asp-action="register"><i class="bi bi-film"></i> Register</a>
+                              </li>
+                              <li class="nav-item" style="right:0px">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="account" asp-action="login"><i class="bi bi-film"></i> Login</a>
+                              </li>
+                        }
+                       </ul>
                     
                 </div>
             </div>
