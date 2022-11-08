@@ -30,14 +30,14 @@
                     @if (@Accessor.HttpContext.Session.GetString("UserName") == "jayshah2002")
                     {
 
-                        <li class="nav-item dropdown">
+                        <div class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="bi bi-gear"></i> Management
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" asp-controller="Company" asp-action="Index"><i class="bi bi-camera-reels"></i> Company</a>
                             </div>
-                        </li>
+                        </div>
 
 
                     }
@@ -84,7 +84,15 @@
                         @await Component.InvokeAsync("ShoppingCartSummary")
                     </ul>
 
+                   
+                   
+                        
+
                 </div>
+                @if (@Accessor.HttpContext.Session.GetString("UserName") != null)
+                {
+                    <div style="margin-right:0px">Hello, @Accessor.HttpContext.Session.GetString("UserName")</div>
+                }
             </div>
         </nav>
     </header>

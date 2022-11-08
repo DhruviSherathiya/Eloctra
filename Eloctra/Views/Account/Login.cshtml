@@ -24,6 +24,9 @@
                     <label class="form-check-label" asp-for="RememberMe">@Html.DisplayNameFor(m => m.RememberMe)</label>
                 </div>
                 <div class="mb-3">
+                    Don't have Account? <a asp-action="register" asp-controller="Account">Register Now</a>
+                </div>
+                <div class="mb-3">
                     <button type="submit" class="btn btn-primary">Login</button>
                 </div>
             </form>

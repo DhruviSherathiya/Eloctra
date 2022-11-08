@@ -40,7 +40,15 @@
                                 <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="@item.Id">
                                     <i class="bi bi-eye-fill"></i> Show Details
                                 </a>
-                                <a class="btn btn-success text-white" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id"><i class="bi bi-cart-plus"></i> Add to Cart </a>
+                                @if (@Accessor.HttpContext.Session.GetString("UserName") == null)
+                                {
+                                    <a class="btn btn-success text-white" asp-controller="account" asp-action="login" asp-route-id="@item.Id"><i class="bi bi-cart-plus"></i> Add to Cart </a>
+
+                                }
+                                else
+                                {
+                                    <a class="btn btn-success text-white" asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id"><i class="bi bi-cart-plus"></i> Add to Cart </a>
+                                }
                             </p>
                         </div>
                     </div>

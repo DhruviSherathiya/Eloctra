@@ -5872,19 +5872,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Indus\\.nuget\\packages\\": {}
+    "C:\\Users\\Jay Shah\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Eloctra\\Eloctra\\Eloctra.csproj",
+      "projectUniqueName": "C:\\Users\\Jay Shah\\OneDrive\\Documents\\GitHub\\Eloctra\\Eloctra\\Eloctra.csproj",
       "projectName": "Eloctra",
-      "projectPath": "D:\\Eloctra\\Eloctra\\Eloctra.csproj",
-      "packagesPath": "C:\\Users\\Indus\\.nuget\\packages\\",
-      "outputPath": "D:\\Eloctra\\Eloctra\\obj\\",
+      "projectPath": "C:\\Users\\Jay Shah\\OneDrive\\Documents\\GitHub\\Eloctra\\Eloctra\\Eloctra.csproj",
+      "packagesPath": "C:\\Users\\Jay Shah\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jay Shah\\OneDrive\\Documents\\GitHub\\Eloctra\\Eloctra\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Indus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jay Shah\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

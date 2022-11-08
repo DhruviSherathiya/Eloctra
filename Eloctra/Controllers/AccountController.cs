@@ -50,7 +50,7 @@ namespace Eloctra.Controllers
                 //SignInManager and redirect to index action of ClassroomController
                 if (result.Succeeded)
                 {
-                    HttpContext.Session.SetString("UserName", model.Username);
+                    
                     await signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("login", "account");
                 }

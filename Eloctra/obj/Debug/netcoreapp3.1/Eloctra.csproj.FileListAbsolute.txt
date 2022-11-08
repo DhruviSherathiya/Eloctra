@@ -276,3 +276,7 @@ D:\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Orders\Index.cshtml.g.cs
 D:\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Orders\OrderCompleted.cshtml.g.cs
 D:\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Orders\ShoppingCart.cshtml.g.cs
 D:\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\ShoppingCartSummary\Default.cshtml.g.cs
+C:\Users\Jay Shah\OneDrive\Documents\GitHub\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Orders\Index.cshtml.g.cs
+C:\Users\Jay Shah\OneDrive\Documents\GitHub\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Orders\OrderCompleted.cshtml.g.cs
+C:\Users\Jay Shah\OneDrive\Documents\GitHub\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Orders\ShoppingCart.cshtml.g.cs
+C:\Users\Jay Shah\OneDrive\Documents\GitHub\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\ShoppingCartSummary\Default.cshtml.g.cs
