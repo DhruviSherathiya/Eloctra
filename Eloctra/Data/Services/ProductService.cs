@@ -1,4 +1,5 @@
 ﻿using Eloctra.Data.Base;
+using Eloctra.Data.ViewModels;
 using Eloctra.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -15,6 +16,31 @@ namespace Eloctra.Data.Services
         {
             _context = context;
         }
+        public async Task AddNewProductAsync(NewProductVM data)
+        {
+            var newProduct = new Product()
+            {
+                Name = data.Name,
+                Description = data.Description,
+                Price = data.Price,
+                ImageURL = data.ImageURL,
+                CompanyId = data.CompanyId,
+                Category = data.Category,
+            };
+            await _context.Products.AddAsync(newProduct);
+            await _context.SaveChangesAsync();
+
+        }
+
+        public async Task<NewProductDropdownsVM> GetNewProductDropdownsValues()
+        {
+            var response = new NewProductDropdownsVM()
+            {
+                Companies = await _context.Companies.OrderBy(n => n.Name).ToListAsync()
+            };
+
+            return response;
+        }
 
         public async Task<Product> GetProductByIdAsync(int id)
         {
@@ -22,17 +48,22 @@ namespace Eloctra.Data.Services
 
             return ProductDetails;
         }
-        /*public async Task<NewProductDropdown> GetNewMovieDropdownsValues()
+
+        /* public async Task UpdateProductAsync(NewProductVM data)
         {
-            var response = new NewProductDropdown()
+            var dbProduct = await _context.Products.FirstOrDefaultAsync(n => n.Id == data.Id);
+
+            if (dbProduct != null)
             {
-                Compaines = await _context.Companies.OrderBy(n => n.Id).ToListAsync(),
-                
-            };
+                dbProduct.Name = data.Name;
+                dbProduct.Description = data.Description;
+                dbProduct.Price = data.Price;
+                dbProduct.ImageURL = data.ImageURL;
+                dbProduct.CompanyId = data.CompanyId;
+                dbProduct.Category = data.Category;
+                await _context.SaveChangesAsync();
+            }
 
-            return response;
-        }
-        */
-
+        }*/
     }
 }

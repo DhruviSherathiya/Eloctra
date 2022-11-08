@@ -11,6 +11,8 @@ namespace Eloctra.Models
 {
     public class NewProductVM
     {
+        public int Id { get; set; }
+
         [Display(Name = "Product name")]
         [Required(ErrorMessage = "Product Name is required")]
         public string Name { get; set; }

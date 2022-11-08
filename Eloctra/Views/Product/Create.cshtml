@@ -18,15 +18,13 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group text-center">
-                                <img id="LogoPreview" />
+                                <img id="ImageURLPreview" />
                             </div>
                             <div class="form-group">
                                 <label asp-for="Name" class="control-label"></label>
                                 <input asp-for="Name" class="form-control" />
                                 <span asp-validation-for="Name" class="text-danger"></span>
                             </div>
-
-
                             <div class="form-group">
                                 <label asp-for="Price" class="control-label"></label>
                                 <input asp-for="Price" type="number" class="form-control" />
@@ -39,7 +37,6 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                 
                             <div class="form-group">
                                 <label asp-for="Category" class="control-label"></label>
                                 <select asp-for="Category" class="form-control"></select>
@@ -47,10 +44,9 @@
                             </div>
                             <div class="form-group">
                                 <label asp-for="CompanyId" class="control-label"></label>
-                                <select asp-for="CompanyId" class="form-control"></select>
+                                <select asp-for="CompanyId" class="form-control" asp-items="ViewBag.Companies"></select>
                                 <span asp-validation-for="CompanyId" class="text-danger"></span>
                             </div>
-                            
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
@@ -60,16 +56,13 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-4 offset-4 text-center">
                         <img width="100%" id="ImageUrlPreview" />
                     </div>
-
                     <div class="form-group">
                         <input type="submit" value="Create" class="btn btn-outline-success float-right" />
                         <a class="btn btn-outline-secondary" asp-action="Index">Show all</a>
                     </div>
-
                 </form>
 
             </div>
@@ -81,12 +74,12 @@
 @section Scripts{
     <script>
         $(document).ready(function () {
-            var output = document.getElementById('LogoPreview');
+            var output = document.getElementById('ImageURLPreview');
             output.src = $("#ImageURL").val();
         })
 
         $("#ImageURL").on("change", function () {
-            var output = document.getElementById('LogoPreview');
+            var output = document.getElementById('ImageURLPreview');
             output.src = $(this).val();
         })
     </script>

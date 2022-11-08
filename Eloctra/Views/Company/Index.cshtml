@@ -4,7 +4,7 @@
     ViewData["Title"] = "List of Companies";
 }
 
- <div class="row">
+<div class="row">
     <div class="col-md-8 offset-md-2">
 
         <table class="table">
@@ -40,10 +40,6 @@
         </table>
 
     </div>
-</div> 
+</div>
 
- <div style="position: fixed; right: 25px; bottom: 25px;" class="text-white">
-     <a asp-controller="Company" asp-action="Create" class="btn btn-success">
-         <i class="bi bi-plus-circle"></i> Add New
-     </a>
- </div>
+@await Html.PartialAsync("_CreateItem", "Company")

@@ -36,42 +36,68 @@ namespace Eloctra.Controllers
         //GET: Product/Create
         public async Task<IActionResult> Create()
         {
-           // var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
+            var productDropdownsData = await _service.GetNewProductDropdownsValues();
 
-           // ViewBag.Company = new SelectList(movieDropdownsData.Company, "Id", "Name");
+            ViewBag.Companies = new SelectList(productDropdownsData.Companies, "Id", "Name");
+            
+
             return View();
         }
 
-
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("Name","Description","Price","ImageUrl","Category","CompanyId")]Product product)
+        public async Task<IActionResult> Create(NewProductVM movie)
         {
             if (!ModelState.IsValid)
             {
-                return View(product);
+                var productDropdownsData = await _service.GetNewProductDropdownsValues();
+
+                ViewBag.Companies = new SelectList(productDropdownsData.Companies, "Id", "Name");
+
+                return View(movie);
             }
-           await _service.AddAsync(product);
-           return RedirectToAction(nameof(Index));
+
+            await _service.AddNewProductAsync(movie);
+            return RedirectToAction(nameof(Index));
         }
 
 
         //Get: Company/Edit//1
-        public async Task<IActionResult> Edit(int id)
+        /* public async Task<IActionResult> Edit(int id)
         {
-            var ProductDetails = await _service.GetByIdAsync(id);
+            var productDetails = await _service.GetProductByIdAsync(id);
+            if (productDetails == null) return View("NotFound");
 
-            if (ProductDetails == null) return View("NotFound");
-            return View(ProductDetails);
+            var response = new NewProductVM()
+            {
+                Id = productDetails.Id,
+                Name = productDetails.Name,
+                Description = productDetails.Description,
+                Price = productDetails.Price,
+                ImageURL = productDetails.ImageURL,
+                Category = productDetails.Category,
+                CompanyId = productDetails.CompanyId
+            };
+
+            var productDropdownsData = await _service.GetNewProductDropdownsValues();
+            ViewBag.Companies = new SelectList(productDropdownsData.Companies, "Id", "Name");
+
+            return View(response);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Name", "Description", "Price", "ImageUrl", "Category", "CompanyId")] Product product)
+        public async Task<IActionResult> Edit(int id, NewProductVM product)
         {
+            if (id != product.Id) return View("NotFound");
+
             if (!ModelState.IsValid)
             {
+                var productDropdownsData = await _service.GetNewProductDropdownsValues();
+                ViewBag.Companies = new SelectList(productDropdownsData.Companies, "Id", "Name");
+
                 return View(product);
             }
-            await _service.UpdateAsync(id, product);
+
+            await _service.UpdateProductAsync(product);
             return RedirectToAction(nameof(Index));
         }
 
@@ -92,7 +118,7 @@ namespace Eloctra.Controllers
 
             await _service.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
-        }
+        }*/
 
     }
 }
