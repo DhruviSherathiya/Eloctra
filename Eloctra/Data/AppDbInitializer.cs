@@ -20,7 +20,7 @@ namespace Eloctra.Data
                 context.Database.EnsureCreated();
 
                 //Product
-                if (!context.Products.Any())
+                /*if (!context.Products.Any())
                  {
                      context.Products.AddRange(new List<Product>()
                      {
@@ -37,7 +37,7 @@ namespace Eloctra.Data
                      });
                      context.SaveChanges();
 
-                 }
+                 }*/
 
                  //Company
                  /* if (!context.Companies.Any())

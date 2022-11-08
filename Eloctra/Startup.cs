@@ -1,7 +1,9 @@
 using Eloctra.Data;
+using Eloctra.Data.Cart;
 using Eloctra.Data.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -33,7 +35,12 @@ namespace Eloctra
             //Services configuration
             services.AddScoped<ICompanyService, CompanyService>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IOrdersService, OrdersService>();
+
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
+
             services.AddSession();
             services.Configure<IdentityOptions>(options =>
             {

@@ -26,22 +26,22 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index"><i class="bi bi-film"></i> Products</a>
                         </li>
                     </ul>
-                        
-                        @if (@Accessor.HttpContext.Session.GetString("UserName") == "jayshah2002")
-                        {
-                            
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="bi bi-gear"></i> Management
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" asp-controller="Company" asp-action="Index"><i class="bi bi-camera-reels"></i> Company</a>
-                                </div>
-                            </li>
-                            
 
-                        }
-                    
+                    @if (@Accessor.HttpContext.Session.GetString("UserName") == "jayshah2002")
+                    {
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-gear"></i> Management
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-controller="Company" asp-action="Index"><i class="bi bi-camera-reels"></i> Company</a>
+                            </div>
+                        </li>
+
+
+                    }
+
 
                     @*If the user is signed-in display Logout Link*@
                     @{ bool val = true;
@@ -53,7 +53,7 @@
                     }
                     @if (val)
                     {
-                         
+
                         <ul class="navbar-nav d-flex justify-content-end">
                             <li class="nav-item">
                                 <form method="post" asp-controller="account" asp-action="logout">
@@ -79,6 +79,10 @@
                             </li>
                         </ul>
                     }
+
+                    <ul class="navbar-nav">
+                        @await Component.InvokeAsync("ShoppingCartSummary")
+                    </ul>
 
                 </div>
             </div>
