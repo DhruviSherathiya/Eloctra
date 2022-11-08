@@ -271,3 +271,4 @@ D:\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g
 D:\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Product\Delete.cshtml.g.cs
 D:\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Product\Edit.cshtml.g.cs
 D:\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_CreateItem.cshtml.g.cs
+C:\Users\Jay Shah\OneDrive\Documents\GitHub\Eloctra\Eloctra\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_CreateItem.cshtml.g.cs

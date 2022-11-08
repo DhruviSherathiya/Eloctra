@@ -1,4 +1,6 @@
 ﻿@inject SignInManager<IdentityUser> signinmanager
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor Accessor
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,41 +22,64 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                        <li class="nav-item" style="margin-left:30px">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index"><i class="bi bi-film"></i> Products</a>
                         </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="bi bi-gear"></i> Management
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" asp-controller="Company" asp-action="Index"><i class="bi bi-camera-reels"></i> Company</a>
-                            </div>
-                        </li>
-                        @*if the user is signed-in display logout link*@
-                        @if (signinmanager.IsSignedIn(User))
+                    </ul>
+                        
+                        @if (@Accessor.HttpContext.Session.GetString("UserName") == "jayshah2002")
                         {
+                            
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="bi bi-gear"></i> Management
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" asp-controller="Company" asp-action="Index"><i class="bi bi-camera-reels"></i> Company</a>
+                                </div>
+                            </li>
+                            
+
+                        }
+                    
+
+                    @*If the user is signed-in display Logout Link*@
+                    @{ bool val = true;
+                        if (@Accessor.HttpContext.Session.GetString("UserName") == null)
+                        {
+                            val = false;
+                        }
+
+                    }
+                    @if (val)
+                    {
+                         
+                        <ul class="navbar-nav d-flex justify-content-end">
                             <li class="nav-item">
                                 <form method="post" asp-controller="account" asp-action="logout">
-                                    <button type="submit" style="width:auto" class="nav-link btn btn-primary py-0">
-                                        Logout @User.Identity.Name
+                                    @*<a class="btn btn-primary" asp-area="" >Logout</a>*@
+                                    <button type="submit" class="nav-link btn btn-primary">
+                                        Logout
                                     </button>
                                 </form>
                             </li>
-                        }
+                        </ul>
 
-                        else
-                        {
-                              <li class="nav-item" style="right:0px">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="account" asp-action="register"><i class="bi bi-film"></i> Register</a>
-                              </li>
-                              <li class="nav-item" style="right:0px">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="account" asp-action="login"><i class="bi bi-film"></i> Login</a>
-                              </li>
-                        }
-                       </ul>
-                    
+
+                    }
+                    else
+                    {
+                        <ul class="navbar-nav d-flex justify-content-end flex-grow-1">
+                            <li class="nav-item" style="margin-left:50px">
+                                <a asp-action="Login" asp-controller="Account" asp-action="login" class="btn btn-primary">Login</a>
+                            </li>
+
+                            <li class="nav-item" style="margin-left:30px">
+                                <a asp-action="Register" asp-controller="Account" asp-action="register" class="btn btn-primary">Register</a>
+                            </li>
+                        </ul>
+                    }
+
                 </div>
             </div>
         </nav>
@@ -65,7 +90,7 @@
         </main>
     </div>
 
-    
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

@@ -1,7 +1,6 @@
-﻿using Eloctra.Data;
-using Eloctra.Data.ViewModels;
-using Eloctra.Models;
+﻿using Eloctra.Data.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,17 +12,15 @@ namespace Eloctra.Controllers
 {
     public class AccountController : Controller
     {
-
+        // Provided by Microsoft.AspNetCore.Identity
         private readonly UserManager<IdentityUser> userManager;
-        private readonly SignInManager<IdentityUser> signinManager;
+        private readonly SignInManager<IdentityUser> signInManager;
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signinManager)
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             this.userManager = userManager;
-            this.signinManager = signinManager;
+            this.signInManager = signInManager;
         }
-
-
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Register()
@@ -31,30 +28,50 @@ namespace Eloctra.Controllers
             return View();
         }
 
-
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult>Register(RegisterViewModel model)
+        //To impelement return function Task<IActionResult>
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
+            //My model is valid or not
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser
+                //Copy data fron RegisterViewModel to IdentityUser
+                var user = new IdentityUser()
                 {
                     UserName = model.Username,
-                    Email = model.Email,
+                    Email = model.Email
                 };
+
+                //Store user data in AspNetUsers database table
                 var result = await userManager.CreateAsync(user, model.Password);
+
+                //If user is successfully created, sign-in the user using
+                //SignInManager and redirect to index action of ClassroomController
                 if (result.Succeeded)
                 {
-                    await signinManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index","Product");
+                    HttpContext.Session.SetString("UserName", model.Username);
+                    await signInManager.SignInAsync(user, isPersistent: false);
+                    return RedirectToAction("login", "account");
                 }
+
+                //If there are any errors, and then to the ModelState object
+                //which will be displayed by the validation summary tag hhelper
                 foreach (var error in result.Errors)
                 {
-                    ModelState.AddModelError(string.Empty, error.Description);
+                    ModelState.AddModelError("", error.Description);
                 }
             }
             return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();
+            HttpContext.Session.Clear();
+            return RedirectToAction("login", "account");
+            /*return RedirectToPage("index");*/
         }
 
         [HttpGet]
@@ -71,32 +88,32 @@ namespace Eloctra.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await signinManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
-                if (!result.Succeeded)
+                var result = await signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, false);
+                if (result.Succeeded)
                 {
+                    HttpContext.Session.SetString("UserName", model.Username);
+                   
+                    
                     if (!String.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
                     {
                         return Redirect(returnUrl);
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Product");
-
+                        return RedirectToAction("index", "Product");
                     }
                 }
+
+
+
+                //Error
                 ModelState.AddModelError(String.Empty, "Incorrect Username or Password.");
             }
 
             return View(model);
         }
 
+       
 
-        [HttpPost]
-        public async Task<IActionResult> Logout()
-        {
-            await signinManager.SignOutAsync();
-            return RedirectToAction("Index", "account");
-        }
-     
     }
 }

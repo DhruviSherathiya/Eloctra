@@ -34,10 +34,17 @@ namespace Eloctra
             services.AddScoped<ICompanyService, CompanyService>();
             services.AddScoped<IProductService, ProductService>();
             services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddSession();
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = false;
+                
+             });
 
             services.AddControllersWithViews();
         }
 
+        
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -53,7 +60,7 @@ namespace Eloctra
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthorization();
@@ -65,7 +72,9 @@ namespace Eloctra
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
+            
             AppDbInitializer.Seed(app);
+            
         }
     }
 }

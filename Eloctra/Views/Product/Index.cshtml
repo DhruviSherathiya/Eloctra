@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<Product>
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor Accessor
 
 @{
     ViewData["Title"] = "List of Products";
@@ -48,4 +50,15 @@
     }
 </div>
 
+<<<<<<< Updated upstream
 @await Html.PartialAsync("_CreateItem", "Product")
+=======
+@if (@Accessor.HttpContext.Session.GetString("UserName") == "jayshah2002")
+{
+    <div style="position: fixed; right: 25px; bottom: 25px;" class="text-white">
+        <a asp-controller="Product" asp-action="Create" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Add New
+        </a>
+    </div>
+}
+>>>>>>> Stashed changes
