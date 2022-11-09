@@ -17,8 +17,11 @@
                         <div class="card-header text-white bg-info">
                             <p class="card-text">
                                 <h5 class="card-title">
-                                    @item.Name
-                                    <!-- <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@item.Id" >Edit</a> -->
+                                    @item.Name &nbsp;&nbsp;&nbsp;
+                                    @if (@Accessor.HttpContext.Session.GetString("UserName") == "jayshah2002")
+                                    {
+                                        <a class="btn btn-light" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                                    }
                                 </h5>
                             </p>
                         </div>
@@ -28,7 +31,6 @@
                     </div>
                     <div class="col-md-6">
                         <div class="card-body">
-                            <p class="card-text">@item.Description</p>
                             <p class="card-text"><b>Company: </b>@item.Company.Name</p>
                             <p class="card-text"><b>Category: </b>@item.Category</p>
                             <p class="card-text"><b>Price: </b>@item.Price.ToString("c")</p>

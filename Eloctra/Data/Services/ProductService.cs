@@ -49,7 +49,7 @@ namespace Eloctra.Data.Services
             return ProductDetails;
         }
 
-        /* public async Task UpdateProductAsync(NewProductVM data)
+        public async Task UpdateProductAsync(NewProductVM data)
         {
             var dbProduct = await _context.Products.FirstOrDefaultAsync(n => n.Id == data.Id);
 
@@ -64,6 +64,6 @@ namespace Eloctra.Data.Services
                 await _context.SaveChangesAsync();
             }
 
-        }*/
+        }
     }
 }

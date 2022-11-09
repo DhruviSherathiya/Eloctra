@@ -1,4 +1,6 @@
 ﻿@model Product
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor Accessor
 
 @{
     ViewData["Title"] = "Product details";
@@ -25,9 +27,15 @@
                         <p class="card-text">@Model.Description</p>
                         <p class="card-text">
                             <b>Company: </b>
-                            <a asp-controller="Company" asp-action="Details" asp-route-id="@Model.CompanyId">
-                                @Model.Company.Name
-                            </a>
+
+                            @if (@Accessor.HttpContext.Session.GetString("UserName") == "jayshah2002")
+                            {
+                                <a asp-controller="Company" asp-action="Details" asp-route-id="@Model.CompanyId">
+                                    @Model.Company.Name
+                                </a>
+                            }
+                            else
+                            { @Model.Company.Name}
                         </p>
                         <p class="card-text"><b>Category: </b>@Model.Category</p>
                         <p class="card-text"><b>Price: </b>@Model.Price.ToString("c")</p>

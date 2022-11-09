@@ -29,7 +29,7 @@ namespace Eloctra.Controllers
         public async Task<IActionResult> Details(int id)
         {
             var ProductsDetail = await _service.GetProductByIdAsync(id);
-            if (ProductsDetail == null) return View("404 Page Not Found");
+            if (ProductsDetail == null) return View("NotFound");
             return View(ProductsDetail);
         }
 
@@ -45,7 +45,7 @@ namespace Eloctra.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(NewProductVM movie)
+        public async Task<IActionResult> Create(NewProductVM product)
         {
             if (!ModelState.IsValid)
             {
@@ -53,16 +53,16 @@ namespace Eloctra.Controllers
 
                 ViewBag.Companies = new SelectList(productDropdownsData.Companies, "Id", "Name");
 
-                return View(movie);
+                return View(product);
             }
 
-            await _service.AddNewProductAsync(movie);
+            await _service.AddNewProductAsync(product);
             return RedirectToAction(nameof(Index));
         }
 
 
         //Get: Company/Edit//1
-        /* public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
             var productDetails = await _service.GetProductByIdAsync(id);
             if (productDetails == null) return View("NotFound");
@@ -118,7 +118,7 @@ namespace Eloctra.Controllers
 
             await _service.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
-        }*/
+        }
 
     }
 }

@@ -15,7 +15,7 @@ namespace Eloctra.Data.Services
 
         Task AddNewProductAsync(NewProductVM data);
 
-        /* Task UpdateProductAsync(NewProductVM data); */
+        Task UpdateProductAsync(NewProductVM data);
     }
 
 }
