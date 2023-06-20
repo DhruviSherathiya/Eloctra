@@ -11,4 +11,4 @@
 
 # Project Demonstrating Video
 
-Video Link : https://drive.google.com/drive/folders/1iTNuAf0u1RXr2mj_NOOz-w6rkjrcUap_
+Video Link : https://drive.google.com/file/d/1U7BcejQi1Ctgbghqbc06jQEGb53McZmQ/view?usp=drive_link
